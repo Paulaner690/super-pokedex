@@ -7,11 +7,9 @@ const HomePage = () => {
 
   return (
     <div className='home-page'>
-        <Header/>
+    
         <div className='item-grid'>
-            {data.map(() => {
-                <ItemPreview/>
-            })}
+            <ItemPreview/>
         </div>
     </div>
   )

@@ -20,6 +20,13 @@ const Header = () => {
   const filteredData = container.filter((item) =>
     item.name.toLowerCase().includes(valueInput.toLowerCase())
   );
+  
+  const [typeSelectorVisible, setTypeSelectorVisible] = useState(false);
+
+  const handleHamburgerClick = () => {
+    setTypeSelectorVisible(true);
+  };
+
 
   return (
     <div>

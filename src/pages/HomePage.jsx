@@ -1,17 +1,18 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import Header from '../components/Header'
-import ItemPreview from '../components/ItemPreview'
+import { PokeContext } from '../Context'
+import { Link } from 'react-router-dom'
 
 const HomePage = () => {
-    const [data, setData] = useState([]);
+    const { data, setData } = useContext(PokeContext);
+    console.log("HomePage");
+    console.log({data});
 
   return (
     <div className='home-page'>
-        <Header/>
+    
         <div className='item-grid'>
-            {data.map(() => {
-                <ItemPreview/>
-            })}
+            <ItemPreview/>
         </div>
     </div>
   )

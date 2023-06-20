@@ -1,2 +1,1 @@
-Mirza
-
+Mitza, Arthur, Paula, Chris

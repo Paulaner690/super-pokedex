@@ -80,6 +80,7 @@ const DetailPage = () => {
 
   </article>
 ) : (
+  // Loading display
 <p>Loading...</p>
 )}
       

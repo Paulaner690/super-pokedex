@@ -1,11 +1,13 @@
 import React, { useContext, useState, useEffect } from "react";
 import { PokeContext } from "../Context";
 import "../assets/css/header.css";
+import TypeSelector from "./TypeSelector";
 
 const Header = () => {
   const { data, setData } = useContext(PokeContext);
   const [valueInput, setValueInput] = useState("");
   const [container, setContainer] = useState([]);
+  const [typeSelectorVisible, setTypeSelectorVisible] = useState(false);
 
   useEffect(() => {
     // Update the container state with data from PokeContext
@@ -14,6 +16,7 @@ const Header = () => {
 
   const valueChange = (event) => {
     setValueInput(event.target.value);
+    setData(filteredData);
     console.log(valueInput);
   };
 
@@ -21,7 +24,7 @@ const Header = () => {
     item.name.toLowerCase().includes(valueInput.toLowerCase())
   );
   
-  const [typeSelectorVisible, setTypeSelectorVisible] = useState(false);
+  
 
   const handleHamburgerClick = () => {
     setTypeSelectorVisible(true);
@@ -30,23 +33,21 @@ const Header = () => {
 
   return (
     <div>
-      <img src="./pokemon-logo.svg" />
-      <div className="header-cont">
-        <button className="sandwich-menu">MENU</button>
-        <input onChange={valueChange} type="text" value={valueInput} />
-        <button>DarkMode</button>
-      </div>
-
-      <button onClick={() => console.log({ data })}>Call Data</button>
-      <br />
-      {filteredData.map((item, index) => (
-        <div key={index}>
-          {item.name}
-          <img src={item.sprites.front_default} />
-          <hr />
+      {typeSelectorVisible ? (<TypeSelector close={setTypeSelectorVisible}/>) :
+      (<div>
+        <img src="./pokemon-logo.svg" />
+        <div className="header-cont">
+          <button className="sandwich-menu" onClick={() => handleHamburgerClick()}>MENU</button>
+          <input onChange={valueChange} type="text" value={valueInput} />
+          <button>DarkMode</button>
         </div>
-      ))}
+  
+        <button onClick={() => console.log({ data })}>Call Data</button>
+      </div>)
+      }
+
     </div>
+    
   );
 };
 

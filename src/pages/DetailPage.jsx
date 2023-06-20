@@ -1,13 +1,14 @@
 import "./DetailPage.css"
-import React, { useContext, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { PokeContext } from '../Context'
 import { NavLink, useParams } from 'react-router-dom';
 
 const DetailPage = () => {
   // Daten aus globalem Fetch bekommen
-  const {data} = useContext(PokeContext);
-  const {id} = useParams();
-  const pokemon =data[id];
+  const { data } = useContext(PokeContext);
+  const { id } = useParams();
+  const [pokemon, setPokemon] = useState(data[id-1]);
+  
 
   // TYPE COLORS
   const typeColors = {
@@ -35,12 +36,22 @@ const DetailPage = () => {
   // MOVEMENTS
   const [unfold, setUnfold] = useState(false)
 
+  useEffect(() => {
+    if (data) {
+      let selectedPokemon = data.filter(pokemon => {
+        return pokemon.id === parseInt(id);
+      });
+  
+      setPokemon(selectedPokemon[0]);
+    }
+  }, []);
+  
 
   return (
     <section className='detailPage'>
       <NavLink to={"/"}>🔙</NavLink>
 
-{data ? (
+{pokemon && data ? (
   <article>
     {/* IMAGE */}
     <div className='detailImg'>

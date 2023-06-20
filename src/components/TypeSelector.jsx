@@ -3,7 +3,7 @@ import { PokeContext } from '../Context'
 import TypeButton from './TypeButton';
 
 const TypeSelector = (props) => {
-  const { data, setData } = useContext(PokeContext);
+  const { data } = useContext(PokeContext);
   const [recordedTypes, setTypes] = useState([]);
 
  const typeColors = {

@@ -1,7 +1,7 @@
 import React, { useContext, useState } from 'react'
 import Header from '../components/Header'
 import { PokeContext } from '../Context'
-import { Link } from 'react-router-dom'
+import ItemPreview from '../components/ItemPreview'
 
 const HomePage = () => {
     const { data, setData } = useContext(PokeContext);
@@ -10,7 +10,7 @@ const HomePage = () => {
 
   return (
     <div className='home-page'>
-    
+      <Header/>
         <div className='item-grid'>
             <ItemPreview/>
         </div>

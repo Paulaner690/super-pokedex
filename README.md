@@ -1,3 +1,1 @@
-# dev-01
-
-## Arthur
+Mitza, Arthur, Paula, Chris

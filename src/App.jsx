@@ -4,6 +4,7 @@ import HomePage from './pages/HomePage'
 import DetailPage from './pages/DetailPage'
 import { PokeContext, DefaultDataContext } from './Context'
 
+
 const App = () => {
 const [data, setData] = useState([]);
 const [originalData, setOriginalData] = useState([]);
@@ -35,6 +36,36 @@ useEffect(() => {
       })
       .catch((error) => console.log(error));
   };
+
+
+const fetchData = async (url) => {
+  try {
+    const response = await fetch(url);
+    const basicData = await response.json();
+    return basicData.results;
+
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+useEffect(() => {
+
+  const fetchAndSetData = async () => {
+    const dataSet = await fetchData("https://pokeapi.co/api/v2/pokemon/?limit=50%22")
+    const pokemonDataPromises = dataSet.map(async (pokemon) => {
+      return fetch(pokemon.url)                  //
+        .then((response) => response.json())    // pokemonDataPromises = Array of promises
+        .catch((error) => console.log(error)); //
+    });
+
+    Promise.all(pokemonDataPromises) // Wait for all promised Pokemon Object calls to resolve
+      .then((pokemonData) => {
+        setData(pokemonData);
+      })
+      .catch((error) => console.log(error));
+  };
+
 
   fetchAndSetData();
 }, []);

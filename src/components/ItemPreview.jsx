@@ -33,20 +33,20 @@ const ItemPreview = () => {
   }, [pokemonList]);
 
   return (
-    <div className='pokemon-container'>
+    <section>
       <h2>ItemPreview</h2>
-      <ul>
+      <div className='pokemon-container'>
         {pokemonData.map((pokemon, index) => (
-          <li key={index}>
+          <p key={index}>
             <img src={pokemon.sprites.front_default} alt={pokemon.name} />
             <span>#0{pokemon.id} </span>
             
             <span>{pokemon.name}</span>
            
-          </li>
+          </p>
         ))}
-      </ul>
-    </div>
+      </div>
+    </section>
   );
 };
 

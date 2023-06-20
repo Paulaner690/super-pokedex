@@ -1,0 +1,37 @@
+.pokemon-container {
+    background: linear-gradient(#FFE1C6,#FFCB05);
+    padding: 1rem;
+    width: 40vw;
+    height: 100%;
+    border-radius: 2rem;
+    border-bottom-left-radius: 0rem;
+    border-bottom-right-radius: 0rem;
+    display: flex;
+    justify-content: center;
+}
+
+.pokemon-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 2rem;
+    row-gap: 6rem;
+}
+
+.white-stripe {
+    background-color: white;
+    padding: 1rem 2rem;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+.white-stripe span {
+    text-decoration: none;
+}
+
+.pokemon-container img {
+    position: absolute;
+    margin-top: -43px;
+    width: 102px;
+}

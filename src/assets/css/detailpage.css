@@ -1,0 +1,67 @@
+@font-face {
+    font-family: Pokomen;
+    src: url(../public/PokemonSolid.ttf);
+  }
+
+p.back {
+    font-size: 3rem;
+    opacity: 0.7;
+    transition: .3s all ease;
+}
+
+p.back:hover {
+    opacity: 1;
+}
+
+.detailPage{
+    text-align: center;
+}
+
+.detailPokeName, .detailH3{
+    font-size: 4rem;
+    color: #FFCB05;
+    /* -webkit-text-stroke: 4px #2C72B8; */
+    font-family: "Pokemon";
+    font-weight: bold;
+    letter-spacing: 2px;
+    text-shadow:
+    -5px -5px 0 #2C72B8,  
+     5px -5px 0 #2C72B8,
+     -5px 5px 0 #2C72B8,
+      5px 5px 0 #2C72B8;
+}
+
+.detailH3{
+    color: #FFCB05;
+    margin-top: 2rem;
+}
+
+.detailTypeArticle{
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.detailImg img{
+    width: 300px;
+}
+
+article.detailTypeArticle div, .movementsClickDiv {
+    padding: 1rem 4rem;
+    color: white;
+    border-radius: 2rem;
+    border: 2px solid rgba(0, 0, 0, 0.179);
+    text-shadow: 0px 0px 10px rgba(0, 0, 0, 0.4);
+}
+
+.movementsClickDiv {
+    background-color: rgb(78, 111, 164);
+    width: 250px;
+    cursor: pointer;
+    margin: auto;
+}
+
+.movementsClickDiv  h3{
+font-size: 2rem;
+margin-top: 0rem;
+}

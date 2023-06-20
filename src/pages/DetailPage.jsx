@@ -1,7 +1,7 @@
-import "./DetailPage.css"
 import React, { useContext, useEffect, useState } from 'react'
 import { PokeContext } from '../Context'
 import { NavLink, useParams } from 'react-router-dom';
+import "../assets/css/detailpage.css"
 
 const DetailPage = () => {
   // Daten aus globalem Fetch bekommen
@@ -49,7 +49,7 @@ const DetailPage = () => {
 
   return (
     <section className='detailPage'>
-      <NavLink to={"/"}>🔙</NavLink>
+      <NavLink to={"/"}><p className="back">🔙</p></NavLink>
 
 {pokemon && data ? (
   <article>

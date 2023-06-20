@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from 'react'
 import { PokeContext } from '../Context'
 import TypeButton from './TypeButton';
+import "../assets/css/typeselector.css"
 
 const TypeSelector = (props) => {
   const { data } = useContext(PokeContext);
@@ -53,10 +54,12 @@ const TypeSelector = (props) => {
 
   return (
     <div className='types-grid'>
-      <a onClick={() => props.close(false)}>CLOSE X</a>
+            <button className='close-btn' onClick={() => props.close(false)}>X</button>
+      <div className='btn-container'>
       {recordedTypes.map((type, index) => (
         <TypeButton key={index} color={typeColors[type]} type={type} typeName={type.toUpperCase()}/>
       ))}
+    </div>
     </div>
   )
 }

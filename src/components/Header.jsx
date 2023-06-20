@@ -2,6 +2,7 @@ import React, { useContext, useState, useEffect } from "react";
 import { PokeContext } from "../Context";
 import "../assets/css/header.css";
 import TypeSelector from "./TypeSelector";
+import menu from "/menu.svg"
 
 const Header = () => {
   const { data, setData } = useContext(PokeContext);
@@ -35,14 +36,11 @@ const Header = () => {
     <div>
       {typeSelectorVisible ? (<TypeSelector close={setTypeSelectorVisible}/>) :
       (<div>
-        <img src="./pokemon-logo.svg" />
+        <img className="logo" src="./pokemon-logo.svg" />
         <div className="header-cont">
-          <button className="sandwich-menu" onClick={() => handleHamburgerClick()}>MENU</button>
+          <button className="sandwich-menu" onClick={() => handleHamburgerClick()}> <img src={menu}/></button>
           <input onChange={valueChange} type="text" value={valueInput} />
-          <button>DarkMode</button>
         </div>
-  
-        <button onClick={() => console.log({ data })}>Call Data</button>
       </div>)
       }
 

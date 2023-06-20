@@ -1,6 +1,7 @@
 import React, { useContext, useState } from 'react'
 import Header from '../components/Header'
 import { PokeContext } from '../Context'
+import { Link } from 'react-router-dom'
 
 const HomePage = () => {
     const { data, setData } = useContext(PokeContext);

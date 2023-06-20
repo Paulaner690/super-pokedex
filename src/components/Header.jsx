@@ -1,6 +1,5 @@
-import React, { useContext, useState } from 'react';
-import { PokeContext } from '../Context';
-import TypeSelector from './TypeSelector';
+import React, { useContext } from 'react'
+import { PokeContext } from '../Context'
 
 const Header = () => {
   const { data, setData } = useContext(PokeContext);
@@ -12,19 +11,8 @@ const Header = () => {
 
   return (
     <div>
-      {typeSelectorVisible ? (
-        <div>
-          <img src="/pokemonLogo.png" alt="Pokemon Logo" />
-          <TypeSelector close={setTypeSelectorVisible} />
-        </div>
-      ) : (
-        <div className='header'>
-          <h2>Header</h2>
-          <div className='hamburger' onClick={handleHamburgerClick}>
-            Show Type Selector
-          </div>
-        </div>
-      )}
+      <h2>Header</h2>
+      <button onClick={() => console.log({data})}>Call Data</button>
     </div>
   );
 };

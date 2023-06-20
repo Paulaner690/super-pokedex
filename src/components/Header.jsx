@@ -1,4 +1,5 @@
-import React, { useContext } from 'react'
+import React from 'react'
+import { useContext } from 'react'
 import { PokeContext } from '../Context'
 
 const Header = () => {

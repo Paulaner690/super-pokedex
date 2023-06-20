@@ -4,16 +4,39 @@ import HomePage from './pages/HomePage'
 import DetailPage from './pages/DetailPage'
 import { PokeContext } from './Context'
 
-
 const App = () => {
 const [data, setData] = useState([]);
 
-  useEffect(() => {
-    fetch("https://pokeapi.co/api/v2/pokemon/?limit=50")
-    .then((response) => response.json())
-    .then((pokeData) => setData(pokeData))
-    .catch((error) => console.log(error));
-  }, [])
+const fetchData = async (url) => {
+  try {
+    const response = await fetch(url);
+    const basicData = await response.json();
+    return basicData.results;
+
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+useEffect(() => {
+
+  const fetchAndSetData = async () => {
+    const dataSet = await fetchData("https://pokeapi.co/api/v2/pokemon/?limit=50%22"); // Get Pokemon Names and URLs to more detailed Pokemon Objects
+    const pokemonDataPromises = dataSet.map(async (pokemon) => {
+      return fetch(pokemon.url)                  //
+        .then((response) => response.json())    // pokemonDataPromises = Array of promises
+        .catch((error) => console.log(error)); //
+    });
+
+    Promise.all(pokemonDataPromises) // Wait for all promised Pokemon Object calls to resolve
+      .then((pokemonData) => {
+        setData(pokemonData);
+      })
+      .catch((error) => console.log(error));
+  };
+
+  fetchAndSetData();
+}, []);
 
   console.log({data});
 
@@ -22,7 +45,7 @@ const [data, setData] = useState([]);
       <BrowserRouter>
         <Routes>
           <Route path='/' element={<HomePage/>}/>
-          <Route path='/pokemon' element={<DetailPage/>}/>
+          <Route path='/pokemon/:id' element={<DetailPage/>}/>
         </Routes>
       </BrowserRouter>
     </PokeContext.Provider>

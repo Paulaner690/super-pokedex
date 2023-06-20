@@ -4,7 +4,6 @@ import { PokeContext } from '../Context';
 
 const TypeButton = (props) => {
     const { data, setData } = useContext(PokeContext);
-    const { typeChecked, setTypeChecked } = useContext(TypeCheckContext);
 
     const hasType = (pokemon, type) => {
         return pokemon.types.some((pokemonType) => pokemonType.type.name === type);
@@ -14,7 +13,7 @@ const TypeButton = (props) => {
         const filteredData = data.filter((pokemon) => hasType(pokemon, selectedType));
         console.log({filteredData});
         setData(filteredData);
-        setTypeChecked(!typeChecked);
+
       }
 
   return (

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import HomePage from './pages/HomePage'
 import DetailPage from './pages/DetailPage'
-import { PokeContext, DefaultDataContext, TypeCheckContext } from './Context'
+import { PokeContext } from './Context'
 
 
 const App = () => {

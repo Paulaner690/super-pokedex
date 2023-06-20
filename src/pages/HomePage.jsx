@@ -10,6 +10,7 @@ const HomePage = () => {
   return (
     <div className='home-page'>
         <Header/>
+        <Link to={"/pokemon/0"}>Details</Link>
         <div className='item-grid'>
             {data.map((pokemon, index) => (
               <div className='pokemon-card' key={index}>

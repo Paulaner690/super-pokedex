@@ -1,6 +1,5 @@
-import React, { useContext, useState } from 'react';
-import { PokeContext } from '../Context';
-import TypeSelector from './TypeSelector';
+import React, { useContext } from 'react'
+import { PokeContext } from '../Context'
 
 const Header = () => {
   const { data, setData } = useContext(PokeContext);
